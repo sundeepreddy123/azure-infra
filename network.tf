@@ -2,8 +2,8 @@
 # RESOURCE GROUP
 #############################################
 resource "azurerm_resource_group" "main" {
-  name     = "rg-infra-demo"
-  location = "East US"
+  name     = var.location_group_name
+  location = var.location
 }
 
 #############################################
@@ -11,7 +11,7 @@ resource "azurerm_resource_group" "main" {
 #############################################
 resource "azurerm_virtual_network" "main" {
   name                = "main-vnet"
-  location            = azurerm_resource_group.main.location
+  location            = var.location
   resource_group_name = azurerm_resource_group.main.name
   address_space       = ["10.0.0.0/16"]
 }
