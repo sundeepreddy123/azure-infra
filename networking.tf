@@ -49,3 +49,37 @@ provider "azurerm" {
     }
 }
 
+variable "resource_group_name" {
+  description  = "The name of the resource group that all resourcs wibb be created in."
+  type         =  string
+}
+
+variable  "location"
+  type  =  string
+  description    =  "location for zones"
+}
+
+variable "tags" {
+  type  =  map(string)
+  description  =  "use tags here"
+  default  =  {}
+}
+
+variable "virtual_networks" {
+  description  = "A list of virtal networks to create."
+  type         =  mao(object({
+    name       =  string
+    address_space  =  list(string)
+    dns_servers    =  list(string)
+
+    encryption_enforcement_policy   = optional(string)
+
+    location    = string
+    ddos_protection_plan    =  object({
+      id      =  string
+      enable  =  bool
+      })
+    }))
+    default  =  {}
+}
+
