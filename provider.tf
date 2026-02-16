@@ -8,17 +8,9 @@ terraform {
 }
 
 provider "azurerm" {
-  tenant_id    =  var.tenant_id
-  subscription_id  =  var.sub
-  client_id        =  var.client
-  clientsecret     =  var.client_secret
+  tenant_id    =  "XXXXXXXXXXXXX"
+  subscription_id  =  "XXXXXXXXXXXXX"
+  client_id        =  "XXXXXXXXXXXXXX"
+  clientsecret     =  "XXXXXXXXXXXX"
   patner_id        =  "XXXXXXXXXXXXXXXXXXX"
-  feature {
-    key_vault {
-      purge_soft_delete_on_destroy   =  true
-    }
-    recovery_service_vaults  {
-      recover_soft_deleted_backup_protected_vm  =  true
-      }
-    }
 }
